@@ -2,7 +2,7 @@
 
 # source activate bsh_prompt
 
-DATA=datasets
+DATA=/opt/data/private/code/promptDG/SPG_Baseline/datasets
 TRAINER=SPG_CGAN
 
 DATASET=$1

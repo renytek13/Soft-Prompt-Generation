@@ -40,7 +40,7 @@ class MY_PACS(DatasetBase):
         ICCV 2017.
     """
 
-    dataset_dir = "pacs"
+    dataset_dir = "PACS"
     domains = ["art_painting", "cartoon", "photo", "sketch"]
     data_url = "https://drive.google.com/uc?id=1m4X4fROCCXMO0lRLrr6Zz9Vb3974NWhE"
     # the following images contain errors and should be ignored

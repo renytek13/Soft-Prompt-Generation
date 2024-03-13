@@ -1,7 +1,7 @@
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
-This codebase is tested on Ubuntu 20.04.2 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
+This codebase is tested on Ubuntu 20.04 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
 
 * Setup conda environment.
 ```bash
@@ -13,8 +13,7 @@ conda activate spg
 
 # Install torch (requires version >= 1.8.1) and torchvision
 # Please refer to https://pytorch.org/get-started/previous-versions/ if your cuda version is different
-conda install pytorch==1.14.0 torchvision==0.15.0 torchaudio==0.12.0 cudatoolkit=11.8 -c pytorch
-conda install pytorch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
 
 * Install dassl library.
@@ -36,8 +35,7 @@ cd ..
 * Clone SPG code repository and install requirements.
 ```bash
 # Clone SPG code base
-# git clone https://github.com/SPG/spg.git
-# cd spg
+# cd SoftPromptGenerationWithCGAN 
 
 # Install requirements
 pip install -r requirements.txt

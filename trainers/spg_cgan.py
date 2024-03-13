@@ -141,7 +141,7 @@ class SPG_CGAN(TrainerX):
         self.best_prompts = {}
 
         for i in range(len(cfg.ALL_DOMAINS)):
-            prompt_dir = prompt_dir = 'prompt_labels' + '/' + self.cfg.DATASET.NAME.split('_')[1] + '/' + self.cfg.MODEL.BACKBONE.NAME.replace('/', '') + '/' + 'seed_' + str(self.cfg.SEED)
+            prompt_dir = prompt_dir = 'prompt_labels' + '/' + self.cfg.DATASET.NAME.split('_')[1] + '/' + self.cfg.MODEL.BACKBONE.NAME.replace('/', '') + '/' + 'seed_' + str(1)
             prompts_path = os.path.join(prompt_dir, self.cfg.DATASET.NAME.split('_')[1] + '_CoOp_' + self.cfg.ALL_DOMAINS[i] + '.pt')
             prompt_label = torch.load(prompts_path).to(self.device)
             self.best_prompts[i] = prompt_label

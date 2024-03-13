@@ -46,12 +46,16 @@ cd ..
 pip install -r requirements.txt
 ```
 
+
 <hr />
 
 
 ## Data preparation
 
 Please download `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`.
+
+
+<hr />
 
 
 ## Run Directly
@@ -76,6 +80,7 @@ bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 bash scripts/test_all.sh pacs spg RN50
 ```
 
+
 <hr />
 
 
@@ -98,6 +103,7 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50
 ### Stage II -- CGAN Pretraining
 
 Please refer to the section of **Run Directly**
+
 
 <hr />
 

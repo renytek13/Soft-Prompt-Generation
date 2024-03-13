@@ -70,7 +70,7 @@ bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 ### Evaluation
 ```bash
 # An expample of test.
-bash scripts/test.sh pacs spg RN50
+bash scripts/test_all.sh pacs spg RN50
 ```
 
 

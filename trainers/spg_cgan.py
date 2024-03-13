@@ -129,15 +129,6 @@ class SPG_CGAN(TrainerX):
         self.register_model("generator", self.gmodel, self.optimizer_G, self.sched_G)
         self.register_model("discriminator", self.dmodel, self.optimizer_D, self.sched_D)
 
-        # Note that multi-gpu training could be slow because CLIP's size is
-        # big, which slows down the copy operation in DataParallel
-        # device_count = torch.cuda.device_count()
-        # if device_count > 1:
-        #     print(f"Multiple GPUs detected (n_gpus={device_count}), use all of them!")
-            
-        #     self.gmodel = nn.DataParallel(self.gmodel)
-        #     self.dmodel = nn.DataParallel(self.dmodel)
-
         self.best_prompts = {}
 
         for i in range(len(cfg.ALL_DOMAINS)):
@@ -435,6 +426,7 @@ class SPG_CGAN(TrainerX):
         label = label.to(self.device)
         domain = domain.to(self.device)
         return input, label, domain
+            
 
     def load_model(self, directory, epoch=None):
         if not directory:
@@ -456,7 +448,7 @@ class SPG_CGAN(TrainerX):
             if not os.path.exists(model_path):
                 raise FileNotFoundError('Model not found at "{}"'.format(model_path))
 
-            checkpoint = load_checkpoint(model_path)
+            checkpoint = self.load_checkpoint(model_path)
             state_dict = checkpoint["state_dict"]
             optimizer = checkpoint["optimizer"]
             scheduler = checkpoint["scheduler"]
@@ -476,10 +468,10 @@ class SPG_CGAN(TrainerX):
         if not osp.exists(fpath):
             raise FileNotFoundError('File is not found at "{}"'.format(fpath))
 
-        map_location = self.device if torch.cuda.is_available() else "cpu"
+        map_location = "cpu"
 
         try:
-            checkpoint = torch.load(fpath, map_location=map_location)
+            checkpoint = torch.load(fpath, map_location=map_location).to(self.device)
 
         except UnicodeDecodeError:
             pickle.load = partial(pickle.load, encoding="latin1")

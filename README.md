@@ -2,6 +2,7 @@ Please follow instrcutions below to reproduce the results.
 
 **We only give an example on PACS dataset in this code space.**
 
+<hr />
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
@@ -45,6 +46,8 @@ cd ..
 pip install -r requirements.txt
 ```
 
+<hr />
+
 
 ## Data preparation
 
@@ -73,6 +76,8 @@ bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 bash scripts/test_all.sh pacs spg RN50
 ```
 
+<hr />
+
 
 ## Run Two-stage Training Paradigm
 
@@ -93,6 +98,8 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50
 ### Stage II -- CGAN Pretraining
 
 Please refer to the section of **Run Directly**
+
+<hr />
 
 
 ## Results

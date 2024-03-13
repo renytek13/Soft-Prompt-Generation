@@ -2,14 +2,14 @@
 
 # source activate spg
 
-DATA=datasets
+DATA= # your directory of dataset
 TRAINER=SPG_CGAN
 
 DATASET=$1
 CFG=$2  # config file
 BACKBONE=$3 # backbone name
 
-# bash test/scripts/test.sh pacs spg RN50
+# bash scripts/test_all.sh pacs spg RN50
 
 if [ "$DATASET" = "pacs" ]; then
   ALL_DOMAIN=('a' 'c' 'p' 's')

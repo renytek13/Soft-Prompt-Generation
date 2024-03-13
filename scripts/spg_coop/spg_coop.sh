@@ -2,7 +2,7 @@
 
 # source activate bsh_prompt
 
-DATA=datasets
+DATA= # your directory of dataset
 TRAINER=SPG_CoOp
 CFG=b32_ep50    # config file
 SEED=1

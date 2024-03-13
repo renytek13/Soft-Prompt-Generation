@@ -1,3 +1,7 @@
+Please follow instrcutions below to reproduce the results. 
+
+**We only give an example on PACS dataset in this code space.**
+
 
 ## Installation 
 For installation and other package requirements, please follow the instructions as follows. 
@@ -42,38 +46,56 @@ pip install -r requirements.txt
 ```
 
 
-## How to Run
+## Data preparation
 
-We provide the running scripts in `scripts`, which allow you to reproduce the results on the paper.
+Please download `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`.
 
-Make sure you change the path in `DATA` and run the commands under the main directory `SPG/`.
 
-### SPG-CoOp
+## Run Directly
+
+We provide the running scripts in `scripts`, which allow you to reproduce the results on the paper. 
+Make sure you **modify the path in `DATA`**!
+
+If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
+
+1. copy the data splits files of [PACS](dataset/PACS/) to the downloaded root directory of PACS datasets.
+
+2. Run the bash file as follows.
+
+### Training 
+```bash
+# Example: trains on PACS dataset with ResNet50 as backbone.
+bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
+```
+### Evaluation
+```bash
+# An expample of test.
+bash scripts/test.sh pacs spg RN50
+```
+
+
+## Run Two-stage Training Paradigm
+
+If you wanna use the data splits and prompt labels produced by yourself. Please follow the instructions as follows:
+
+### Stage I -- Produce the domain prompt labels
 
 All you need is `SPG/scripts/spg_coop/spg_coop.sh`, which contains two input arguments.
+Make sure you **modify the path in `DATA`**!
 
-`DATASET` takes as input a dataset name, including `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`. The valid names are the files' names in `SPG/configs/datasets/`.
+### Runing
+```bash
+# Example: trains on PACS dataset with ResNet50 as backbone.
+bash scripts/spg_coop/spg_coop.sh pacs RN50
+```
 
-`BACKBONE` means basic backbone name, including `RN50` and `ViT-B/16`.
 
-### SPG-CGAN
+### Stage II -- CGAN Pretraining
 
-All you need is `SPG/scripts/spg_cgan/spg_cgan.sh`, which contains three input arguments.
+Please refer to the section of **Run Directly**
 
-`DATASET` takes as input a dataset name, including `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`. The valid names are the files' names in `SPG/configs/datasets/`.
 
-`CFG` means which config file to use (see `SPG/configs/trainers/SPG_CGAN/`).
-
-`BACKBONE` means basic backbone name, including `RN50` and `ViT-B/16`.
-
-Below we provide examples on how to run SPG on PACS with RN50 backbone.
-
-**SPG_CoOp (Get the optimal prompt for each domain)**:
-`bash scripts/spg_coop/spg_coop.sh pacs RN50`
-
-**SPG_CGAN**:
-`bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50`
-
+## Results
 
 After the experiments are finished, you can obtain the average results looking into the log files. Say the structure of `outputs/` is
 

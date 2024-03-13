@@ -1,0 +1,5 @@
+ftfy
+regex
+tqdm
+dassl
+git+https://github.com/openai/CLIP.git

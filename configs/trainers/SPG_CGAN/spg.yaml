@@ -1,0 +1,61 @@
+DATALOADER:
+  TRAIN_X:
+    BATCH_SIZE: 32
+  TEST:
+    BATCH_SIZE: 1
+  NUM_WORKERS: 8
+
+INPUT:
+  SIZE: (224, 224)
+  INTERPOLATION: "bicubic"
+  PIXEL_MEAN: [0.48145466, 0.4578275, 0.40821073]
+  PIXEL_STD: [0.26862954, 0.26130258, 0.27577711]
+  TRANSFORMS: ["random_resized_crop", "random_flip", "normalize"]
+
+OPTIM:
+  NAME: "sgd"
+  LR: 2e-3
+  MAX_EPOCH: 70
+  LR_SCHEDULER: "cosine"
+  WARMUP_EPOCH: 4
+  WARMUP_TYPE: "linear"
+  WARMUP_CONS_LR: 1e-5
+
+TRAIN:
+  PRINT_FREQ: 10
+
+TEST:
+  NO_TEST: False
+
+MODEL:
+  BACKBONE:
+    NAME: "RN50"
+
+TRAINER:
+  SPG:
+    CTX_INIT: "a photo of a"
+
+
+# only domain cartoon & photo in PACS dataset
+# GRAD_CLIP: False
+GRAD_CLIP: True
+
+
+# only in PACS dataset
+D_MAX_NORM_WEIGHT: 5e-1
+D_MAX_NORM_BIAS: 5e-1
+D_MAX_NORM_LAST: 5
+
+G_MAX_NORM_WEIGHT: 5e-2
+G_MAX_NORM_BIAS: 5e-7
+G_MAX_NORM_BIAS_LAST: 5
+
+
+# most situation
+# D_MAX_NORM_WEIGHT: 5e-2
+# D_MAX_NORM_BIAS: 5e-1
+# D_MAX_NORM_LAST: 5
+
+# G_MAX_NORM_WEIGHT: 5e-3
+# G_MAX_NORM_BIAS: 5e-8
+# G_MAX_NORM_BIAS_LAST: 1

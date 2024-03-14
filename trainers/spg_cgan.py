@@ -471,7 +471,7 @@ class SPG_CGAN(TrainerX):
         map_location = "cpu"
 
         try:
-            checkpoint = torch.load(fpath, map_location=map_location).to(self.device)
+            checkpoint = torch.load(fpath, map_location=map_location)
 
         except UnicodeDecodeError:
             pickle.load = partial(pickle.load, encoding="latin1")

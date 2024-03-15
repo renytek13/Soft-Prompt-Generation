@@ -266,3 +266,11 @@ art_painting: accuracy: 93.5%. error: 6.5%.
 photo: accuracy: 99.1%. error: 0.9%.
 sketch: accuracy: 85.1%. error: 14.9%.
 ```
+
+## Single-source Domain Generation
+
+See `scripts/spg_cgan/single.sh`.
+
+## Cross-dataset Domain Generation
+
+See `scripts/spg_cgan/cross.sh`.

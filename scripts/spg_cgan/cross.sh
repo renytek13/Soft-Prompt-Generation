@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# source activate bsh_prompt
+# source activate spg
 
-# DATA= # your directory of dataset
-DATA=datasets
+DATA= # your directory of dataset
 TRAINER=SPG_CGAN
 
 CFG=$1          # config file

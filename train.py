@@ -144,6 +144,18 @@ def reset_cfg(cfg, args):
         DOMAINS.pop(cfg.SOURCE_DOMAIN)
         cfg.TARGET_DOMAINS = list(DOMAINS.keys())
         cfg.DATASET.TARGET_DOMAINS = list(DOMAINS.values())
+
+    if args.source_datasets:
+        DATASETS = {'d': "DomainNet", 'o':"OfficeHome", 'p':"PACS", 't':"TerraIncognita", 'v':"VLCS"}  
+            
+        cfg.ALL_DATASETS = list(DATASETS.keys())
+        
+        cfg.SOURCE_DATASET = args.source_datasets[0]
+        cfg.DATASET.SOURCE_DATASETS = [DATASETS[cfg.SOURCE_DATASET]]
+        
+        DATASETS.pop(cfg.SOURCE_DATASET)
+        cfg.TARGET_DATASETS = list(DATASETS.keys())
+        cfg.DATASET.TARGET_DATASETS = list(DATASETS.values())
         
 
 def extend_cfg(cfg):
@@ -162,7 +174,7 @@ def extend_cfg(cfg):
     cfg.MODEL.BACKBONE.PATH = "./assets"        # path of pretrained CLIP model
     cfg.TEST.FINAL_MODEL = "best_val"
     cfg.LATENT_DIM = 100    # size of latent space
-    cfg.GRAD_CLIP = False
+    cfg.GRAD_CLIP = True
     cfg.D_MAX_NORM_WEIGHT = 5e-2
     cfg.D_MAX_NORM_BIAS = 5e-1
     cfg.D_MAX_NORM_LAST = 5
@@ -248,6 +260,9 @@ if __name__ == "__main__":
     
     parser.add_argument("--source-domains", type=str, nargs="+", help="source domains for DA/DG")
     parser.add_argument("--target-domains", type=str, nargs="+", help="target domains for DA/DG")
+
+    parser.add_argument("--source-datasets", type=str, nargs="+", help="source datasets for DA/DG")
+    parser.add_argument("--target-datasets", type=str, nargs="+", help="target datasets for DA/DG")
     
     parser.add_argument("--transforms", type=str, nargs="+", help="data augmentation methods")
     

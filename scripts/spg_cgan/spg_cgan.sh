@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# source activate bsh_prompt
+# source activate spg
 
 DATA= # your directory of dataset
 TRAINER=SPG_CGAN
@@ -38,7 +38,7 @@ for SEED in 1 2 3
 do
   for DOMAIN in "${ALL_DOMAIN[@]}"
   do
-    DIR=outputs/SPG/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/${DOMAIN}/seed_${SEED}
+    DIR=outputs/SPG/multi_DG/${TRAINER}/${DATASET}/${CFG}/${BACKBONE//\//}/${DOMAIN}/seed_${SEED}
 
     if [ -d "$DIR" ]; then
       echo "Results are available in ${DIR}, so skip this job"

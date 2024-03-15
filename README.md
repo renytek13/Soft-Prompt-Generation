@@ -1,3 +1,6 @@
+# Soft Prompt Generation with CGAN
+**Simple introduce...(need finished)**
+
 Please follow instrcutions below to reproduce the results. 
 
 **We only give an example on PACS dataset in this code space.**
@@ -51,9 +54,109 @@ pip install -r requirements.txt
 
 
 ## Data preparation
+**Please follow the instructions below to download the datasets `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`.**
 
-Please download `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`.
+We recommend that all datasets be placed under the same folder `$DATA` for ease of management, with the file structure organized as follows
 
+```
+$DATA/
+|–– DomainNet/
+|–– OfficeHome/
+|–– PACS/
+|–– TerraIncognita/
+|–– VLCS/
+```
+
+To ensure reproducibility and fairness in future work, we provide a fixed set of training set/validation set/test set splits for all datasets, each of which is prepared as described below.
+
+### DomainNet
+- Create a folder named `DomainNet/` under `$DATA`.
+- Create `images/` under `DomainNet/`.
+- Download clipart domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/clipart.zip.
+- Download infograph domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/infograph.zip.
+- Download painting domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/painting.zip.
+- Download quickdraw domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/quickdraw.zip.
+- Download real domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/real.zip.
+- Download sketch domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/sketch.zip.
+- Extract the above downloaded images to `$DATA/DomainNet/images`.
+- Download `splits_domainnet.zip` from this [link](**...(NEED FINISHED)**) and extract the folder under `$DATA/DomainNet`.
+
+The specific directory structure is as follows
+```
+DomainNet/
+|–– images/
+|   |–– clipart/
+|   |–– infograph/
+|   |–– painting/
+|   |–– quickdraw/
+|   |–– real/
+|   |–– sketch/
+|–– splits_domainnet/
+```
+
+### OfficeHome
+- Create a folder named `OfficeHome/` under `$DATA`.
+- Download `office_home_dg.zip` from https://drive.google.com/uc?id=1gkbf_KaxoBws-GWT3XIPZ7BnkqbAxIFa and extract the folder `office_home_dg/`. Then rename the folder `office_home_dg` to `images` and put it under `OfficeHome/`.
+- Download `splits_officehome.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/OfficeHome`.
+
+The specific directory structure is as follows
+```
+OfficeHome/
+|–– images/
+|   |–– art/
+|   |–– clipart/
+|   |–– product/
+|   |–– real_world/
+|–– splits_officehome/
+```
+
+### PACS
+- Create a folder named `PACS/` under `$DATA`.
+- Download `pacs.zip` from https://drive.google.com/uc?id=1m4X4fROCCXMO0lRLrr6Zz9Vb3974NWhE and extract the folder `pacs/images/`. Then put the folder `images/` under `PACS/`.
+- Download `splits_pacs.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/PACS`.
+
+The specific directory structure is as follows
+```
+PACS/
+|–– images/
+|   |–– art_painting/
+|   |–– cartoon/
+|   |–– photo/
+|   |–– sketch/
+|–– splits_pacs/
+```
+
+### TerraIncognita
+- Create a folder named `TerraIncognita/` under `$DATA`.
+- Download **...zip(NEED FINISHED)** from **...(NEED FINISHED)** and extract the folder. Then put the folder `images/` under `TerraIncognita/`.
+- Download `splits_terraincognita.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/TerraIncognita`.
+
+The specific directory structure is as follows
+```
+TerraIncognita/
+|–– images/
+|   |–– location_38/
+|   |–– location_43/
+|   |–– location_46/
+|   |–– location_100/
+|–– splits_terraincognita/
+```
+
+### VLCS
+- Create a folder named `VLCS/` under `$DATA`.
+- Download `vlcs.zip` from https://drive.google.com/uc?id=1r0WL5DDqKfSPp9E3tRENwHaXNs1olLZd and extract the folder `VLCS/`. Then rename the folder `VLCS` to `images` and put it under `VLCS/`.
+- Download `splits_vlcs.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/VLCS`.
+
+The specific directory structure is as follows
+```
+VLCS/
+|–– images/
+|   |–– CALTECH/
+|   |–– LABELME/
+|   |–– PASCAL/
+|   |–– SUN/
+|–– splits_vlcs/
+```
 
 <hr />
 
@@ -61,11 +164,12 @@ Please download `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`
 ## Run Directly
 
 We provide the running scripts in `scripts`, which allow you to reproduce the results on the paper. 
-Make sure you **modify the path in `DATA`**!
+Make sure you **modify the path in `$DATA`**!
 
 If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
 
-1. copy the data splits files of [PACS](dataset/PACS/) to the downloaded root directory of PACS datasets.
+<!-- 1. copy the data splits files of [PACS](datasets/PACS/) to the downloaded root directory of PACS datasets. -->
+1. Ensure that you have downloaded the [PACS](#PACS) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 
 2. Run the bash file as follows.
 
@@ -88,10 +192,12 @@ bash scripts/test_all.sh pacs spg RN50
 
 If you wanna use the data splits and prompt labels produced by yourself. Please follow the instructions as follows:
 
+**First, when downloading the dataset, ignore the last step of downloading the split folder when following the [Data preparation](#data-preparation) steps above and just build the images directory as required.**
+
 ### Stage I -- Produce the domain prompt labels
 
 All you need is `SPG/scripts/spg_coop/spg_coop.sh`, which contains two input arguments.
-Make sure you **modify the path in `DATA`**!
+Make sure you **modify the path in `$DATA`**!
 
 ### Runing
 ```bash
@@ -102,7 +208,7 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50
 
 ### Stage II -- CGAN Pretraining
 
-Please refer to the section of **Run Directly**
+Please refer to the section of **[Run Directly](#run-directly)**
 
 
 <hr />
@@ -146,3 +252,17 @@ outputs
 To observe the resultant change curve, you can run
 `tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1`.
 
+
+Below we provide a set of results from a direct evaluation using our pre-trained model [test_models](#test_models) on PACS dataset with ResNet50 as backbone.
+
+**How to Run**
+Run `bash scripts/test_all.sh pacs spg RN50`
+
+**View Results**
+See the results in file [outputs_test](#outputs_test).
+```bash
+art_painting: accuracy: 93.5%. error: 6.5%.
+# cartoon: accuracy: %. error: %.
+photo: accuracy: 99.1%. error: 0.9%.
+sketch: accuracy: 85.1%. error: 14.9%.
+```

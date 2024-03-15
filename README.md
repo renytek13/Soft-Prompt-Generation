@@ -69,7 +69,7 @@ Make sure you **modify the path in `$DATA`**!
 If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
 
 <!-- 1. copy the data splits files of [PACS](datasets/PACS/) to the downloaded root directory of PACS datasets. -->
-1. Ensure that you have downloaded the [PACS](DATASETS.md#PACS) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
+1. Ensure that you have downloaded the [PACS](DATASETS.md#pacs) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 
 2. Run the bash file as follows.
 

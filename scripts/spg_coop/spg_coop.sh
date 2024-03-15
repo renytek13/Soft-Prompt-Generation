@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# source activate bsh_prompt
+# source activate spg
 
 DATA= # your directory of dataset
 TRAINER=SPG_CoOp
 CFG=b32_ep50    # config file
-SEED=1
 
 DATASET=$1
 BACKBONE=$2     # backbone name
@@ -52,7 +51,6 @@ do
       --trainer ${TRAINER} \
       --dataset-config-file configs/datasets/${DATASET}_coop.yaml \
       --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
-      --output-dir ${DIR} \
-      --seed ${SEED}      
+      --output-dir ${DIR}
   fi
 done

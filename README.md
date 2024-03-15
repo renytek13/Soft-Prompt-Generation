@@ -69,7 +69,7 @@ Make sure you **modify the path in `$DATA`**!
 If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
 
 <!-- 1. copy the data splits files of [PACS](datasets/PACS/) to the downloaded root directory of PACS datasets. -->
-1. Ensure that you have downloaded the [PACS](DATASETS.md/#PACS) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
+1. Ensure that you have downloaded the [PACS](DATASETS.md#PACS) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 
 2. Run the bash file as follows.
 
@@ -151,7 +151,7 @@ Below we provide a set of results from a direct evaluation using our pre-trained
 Run `bash scripts/test_all.sh pacs spg RN50`
 
 **View Results**
-See the results in file [outputs_test](#outputs_test).
+See the results in file [outputs_test](outputs_test/).
 ```bash
 art_painting: accuracy: 93.5%. error: 6.5%.
 # cartoon: accuracy: %. error: %.

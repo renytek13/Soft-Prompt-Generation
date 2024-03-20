@@ -19,5 +19,5 @@ from .single_pacs import SINGLE_PACS
 from .single_terra_incognita import SINGLE_TerraIncognita
 from .single_vlcs import SINGLE_VLCS
 
-from .cross import CROSS
-from .cross_test import CROSS_TEST
+from .cross import CROSS_DomainNet
+from .cross_test import CROSS_DomainNet_TEST

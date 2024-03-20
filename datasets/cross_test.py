@@ -24,14 +24,10 @@ def read_split(root_path, split_path):
 
 
 @DATASET_REGISTRY.register()
-class CROSS_TEST(DatasetBase):
+class CROSS_DomainNet_TEST(DatasetBase):
     
     def __init__(self, cfg):
         self.root = osp.abspath(osp.expanduser(cfg.DATASET.ROOT))
-
-        # if not osp.exists(self.dataset_dir):
-        #     dst = osp.join(self.root, "office_home_dg.zip")
-        #     self.download_data(self.data_url, dst, from_gdrive=True)
 
         train, val, test = self._read_data(cfg.DATASET.SOURCE_DATASETS)
 

@@ -24,7 +24,7 @@ def read_split(root_path, split_path):
 
 
 @DATASET_REGISTRY.register()
-class CROSS(DatasetBase):
+class CROSS_DomainNet(DatasetBase):
 
     def __init__(self, cfg):
         self.root = osp.abspath(osp.expanduser(cfg.DATASET.ROOT))

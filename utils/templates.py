@@ -19,21 +19,21 @@ CUSTOM_TEMPLATES = {
     
     "PACS": "a photo of a {}.",
     "PACS_CoOp": "a photo of a {}.",
-    "MY_PACS": "a photo of a {}.",
+    "SPG_PACS": "a photo of a {}.",
     
     "VLCS": "a photo of a {}.",
     "VLCS_CoOp": "a photo of a {}.",
-    "MY_VLCS": "a photo of a {}.",
+    "SPG_VLCS": "a photo of a {}.",
     
     "OfficeHome": "a photo of a {}.",
     "OfficeHome_CoOp": "a photo of a {}.",
-    "MY_OfficeHome": "a photo of a {}.",
+    "SPG_OfficeHome": "a photo of a {}.",
     
     "TerraIncognita_CoOp": "a photo of a {}.",
-    "MY_TerraIncognita": "a photo of a {}.",
+    "SPG_TerraIncognita": "a photo of a {}.",
     
     "DomainNet_CoOp": "a photo of a {}.",
-    "MY_DomainNet": "a photo of a {}.",
+    "SPG_DomainNet": "a photo of a {}.",
 
     "SINGLE_DomainNet": "a photo of a {}.",
     "SINGLE_TerraIncognita": "a photo of a {}.",

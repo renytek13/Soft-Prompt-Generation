@@ -146,7 +146,7 @@ def reset_cfg(cfg, args):
         cfg.DATASET.TARGET_DOMAINS = list(DOMAINS.values())
 
     if args.source_datasets:
-        DATASETS = {'d': "DomainNet", 'o':"OfficeHome", 'p':"PACS", 't':"TerraIncognita", 'v':"VLCS"}  
+        DATASETS = {'d': "DomainNet", 'o':"OfficeHome", 'p':"PACS", 't':"TerraIncognita", 'v':"VLCS"}
             
         cfg.ALL_DATASETS = list(DATASETS.keys())
         
@@ -156,6 +156,9 @@ def reset_cfg(cfg, args):
         DATASETS.pop(cfg.SOURCE_DATASET)
         cfg.TARGET_DATASETS = list(DATASETS.keys())
         cfg.DATASET.TARGET_DATASETS = list(DATASETS.values())
+        
+        DOMAINS = {'c': "clipart", 'i':"infograph", 'p':"painting", 'q':"quickdraw", 'r':"real", 's':"sketch"}
+        cfg.ALL_DOMAINS = list(DOMAINS.keys())
         
 
 def extend_cfg(cfg):

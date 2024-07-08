@@ -38,8 +38,12 @@ TRAINER:
 
 # only domain cartoon & photo in PACS dataset
 # GRAD_CLIP: False
+
+# other defaults
 GRAD_CLIP: True
 
+# The optimal set of parameter combinations in our experiments is given below,
+# and the parameters can be adjusted appropriately in a small range for specific implementations
 
 # only in PACS dataset
 D_MAX_NORM_WEIGHT: 5e-1
@@ -51,7 +55,7 @@ G_MAX_NORM_BIAS: 5e-7
 G_MAX_NORM_BIAS_LAST: 5
 
 
-# most situation
+# other defaults
 # D_MAX_NORM_WEIGHT: 5e-2
 # D_MAX_NORM_BIAS: 5e-1
 # D_MAX_NORM_LAST: 5

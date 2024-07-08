@@ -1,4 +1,4 @@
-# Soft Prompt Generation with CGAN
+# Soft Prompt Generation for Domain Generalization [ECCV 2024]
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2404.19286)
 

@@ -1,5 +1,5 @@
 # Soft Prompt Generation with CGAN
-**We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization. SPG is designed to exclusively harness a generative model for prompt generation, leveraging the model’s inherent capability to encode domain and content knowledge directly into the generated prompts.**
+**We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization.**
 
 Please follow instrcutions below to reproduce the results. 
 
@@ -68,7 +68,6 @@ Make sure you **modify the path in `$DATA`**!
 
 If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
 
-<!-- 1. copy the data splits files of [PACS](datasets/PACS/) to the downloaded root directory of PACS datasets. -->
 1. Ensure that you have downloaded the [PACS](./DATASETS.md#pacs) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 
 2. Run the bash file as follows.
@@ -116,49 +115,10 @@ Please refer to the section of **[Run Directly](#run-directly)**
 
 ## Results
 
-After the experiments are finished, you can obtain the average results looking into the log files. Say the structure of `outputs/` is
-
-```
-outputs
-|–– SPG/
-|   |–– SPG_CoOp/
-|   |   |–– pacs/
-|   |   |   |–– seed_1/b32_ep50/RN50/
-|   |   |   |   |–– a/
-|   |   |   |   |–– c/
-|   |   |   |   |–– p/
-|   |   |   |   |–– s/
-|   |–– SPG_CGAN/
-|   |   |–– pacs/
-|   |   |   |–– spg/RN50/
-|   |   |   |   |–– a/
-|   |   |   |   |   |–– seed_1/
-|   |   |   |   |–– c/
-|   |   |   |   |   |–– seed_1/
-|   |   |   |   |–– p/
-|   |   |   |   |   |–– seed_1/
-|   |   |   |   |–– s/
-|   |   |   |   |   |–– seed_1/
-```
+After the experiments are finished, you can obtain the average results looking into the log files.
 
 To observe the resultant change curve, you can run
 `tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1`.
-
-<!--
-Below we provide a set of results from a direct evaluation using our pre-trained model [test_models](#test_models) on PACS dataset with ResNet50 as backbone.
-
-**How to Run**
-Run `bash scripts/test_all.sh pacs spg RN50`
-
-**View Results**
-See the results in file [outputs_test](outputs_test/).
-```bash
-art_painting: accuracy: 93.5%. error: 6.5%.
-cartoon: accuracy: 93.1%. error: 6.9%.
-photo: accuracy: 99.1%. error: 0.9%.
-sketch: accuracy: 85.1%. error: 14.9%.
-```
--->
 
 ## Single-source Domain Generation
 
@@ -167,3 +127,25 @@ See `scripts/spg_cgan/single.sh`.
 ## Cross-dataset Domain Generation
 
 See `scripts/spg_cgan/cross.sh`.
+
+
+## Acknowledgements
+
+Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) repository. We thank the authors for releasing their code.
+
+## Citation
+
+If you use our code, please consider citing our work:
+
+```bibtex
+@inproceedings{bai2024softpromptgenerationdomain,
+  title={Soft Prompt Generation for Domain Generalization},
+  author={Shuanghao, Bai and Yuedi, Zhang and Wanqi, Zhou and Zhirong, Luan and Badong, Chen},
+  booktitle={ECCV 2024 Workshop on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+```
+
+## Contact
+
+If you have any questions, please contact at [zyd993@stu.xjtu.edu.cn](mailto:zyd993@stu.xjtu.edu.cn).

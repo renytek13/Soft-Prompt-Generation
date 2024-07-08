@@ -1,5 +1,5 @@
 # Soft Prompt Generation with CGAN
-**Simple introduce...(need finished)**
+**We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization. SPG is designed to exclusively harness a generative model for prompt generation, leveraging the model’s inherent capability to encode domain and content knowledge directly into the generated prompts.**
 
 Please follow instrcutions below to reproduce the results. 
 
@@ -43,7 +43,7 @@ cd ..
 * Clone SPG code repository and install requirements.
 ```bash
 # Clone SPG code base
-# cd SoftPromptGenerationWithCGAN 
+cd SoftPromptGenerationWithCGAN
 
 # Install requirements
 pip install -r requirements.txt
@@ -154,7 +154,7 @@ Run `bash scripts/test_all.sh pacs spg RN50`
 See the results in file [outputs_test](outputs_test/).
 ```bash
 art_painting: accuracy: 93.5%. error: 6.5%.
-# cartoon: accuracy: %. error: %.
+cartoon: accuracy: 93.1%. error: 6.9%.
 photo: accuracy: 99.1%. error: 0.9%.
 sketch: accuracy: 85.1%. error: 14.9%.
 ```

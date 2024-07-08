@@ -24,14 +24,14 @@ from dassl.metrics import compute_accuracy
 from dassl.utils import load_pretrained_weights, load_checkpoint
 from dassl.optim import build_optimizer, build_lr_scheduler
 
-
 _tokenizer = _Tokenizer()
 
 
-
 class Generator(nn.Module):
-    def __init__(self, cfg, n_ctx):
+    def __init__(self, cfg, n_ctx, dim=256):
         super(Generator, self).__init__()
+
+        self.cfg = cfg
 
         def block(in_feat, out_feat, normalize=True):
             layers = [nn.Linear(in_feat, out_feat)]
@@ -42,11 +42,11 @@ class Generator(nn.Module):
             return layers
 
         self.model = nn.Sequential(
-            *block(cfg.FEAT_DIM + cfg.LATENT_DIM, 128, normalize=False),
-            *block(128, 256),
-            *block(256, 512),
-            *block(512, 1024),
-            nn.Linear(1024, n_ctx * 512),
+            *block(cfg.FEAT_DIM + cfg.LATENT_DIM, dim // 2, normalize=False),
+            *block(dim // 2, dim),
+            *block(dim, dim * 2),
+            *block(dim * 2, dim * 4),
+            nn.Linear(dim * 4, n_ctx * 512),
             nn.Tanh()
         )
 
@@ -58,7 +58,7 @@ class Generator(nn.Module):
 
     def forward(self, image, n_ctx):
         # generate random noise
-        noise = torch.randn([image.shape[0], 100]).to(image.device)
+        noise = torch.randn([image.shape[0], self.cfg.LATENT_DIM]).to(image.device)
         noise = noise.view(noise.shape[0], -1)
         # concatenate noise and image label to produce gen_input
         gen_input = torch.cat((noise, image.view(image.shape[0], -1)), -1)
@@ -70,19 +70,22 @@ class Generator(nn.Module):
 
 
 class Discriminator(nn.Module):
-    def __init__(self, cfg, n_ctx):
+    def __init__(self, cfg, n_ctx, dim=512):
         super(Discriminator, self).__init__()
 
+        def block(in_feat, out_feat, dropout=True):
+            layers = [nn.Linear(in_feat, out_feat)]
+            if dropout:
+                layers.append(nn.Dropout(0.4))
+            layers.append(nn.LeakyReLU(0.2, inplace=True))
+
+            return layers
+
         self.model = nn.Sequential(
-            nn.Linear(n_ctx * 512 + cfg.FEAT_DIM, 512),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 512),
-            nn.Dropout(0.4),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 512),
-            nn.Dropout(0.4),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 1)
+            *block(n_ctx * 512 + cfg.FEAT_DIM, dim, dropout=False),
+            *block(dim, dim),
+            *block(dim, dim),
+            nn.Linear(dim, 1)
         )
 
         # Initialization with He
@@ -97,7 +100,6 @@ class Discriminator(nn.Module):
         return validity
 
 
-# stage 2nd: train the CPG model
 @TRAINER_REGISTRY.register()
 class SPG_CGAN(TrainerX):
     """Soft Prompt Generation with CGAN (SPG_CGAN).
@@ -130,7 +132,7 @@ class SPG_CGAN(TrainerX):
         self.register_model("discriminator", self.dmodel, self.optimizer_D, self.sched_D)
 
         self.best_prompts = {}
-
+        # loading domain best prompt label
         for i in range(len(cfg.ALL_DOMAINS)):
             prompt_dir = prompt_dir = 'prompt_labels' + '/' + self.cfg.DATASET.NAME.split('_')[1] + '/' + self.cfg.MODEL.BACKBONE.NAME.replace('/', '') + '/' + 'seed_' + str(1)
             prompts_path = os.path.join(prompt_dir, self.cfg.DATASET.NAME.split('_')[1] + '_CoOp_' + self.cfg.ALL_DOMAINS[i] + '.pt')
@@ -145,7 +147,6 @@ class SPG_CGAN(TrainerX):
         adversarial_loss = torch.nn.MSELoss()
         adversarial_loss.to(self.device)
 
-        # image_features = self.clip_model.visual(image.type(self.clip_model.dtype))
         image_features = self.clip_model.encode_image(image)
         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
         image_features = image_features.to(torch.float32)
@@ -156,7 +157,7 @@ class SPG_CGAN(TrainerX):
 
         data_loader = self.train_loader_x
         randnum = self.fake_list[self.batch_idx]
-
+        # get the fake image
         for batch_idx_fake, batch_fake in enumerate(data_loader):
             if(batch_idx_fake == randnum):
                 fake_image, fake_label, fake_domain = self.parse_batch_train(batch_fake)
@@ -181,7 +182,6 @@ class SPG_CGAN(TrainerX):
         d_real_loss = adversarial_loss(validity_real, real)
         d_real_loss.backward()
 
-        # fake_image_features = self.clip_model.visual(fake_image.type(self.clip_model.dtype))
         fake_image_features = self.clip_model.encode_image(fake_image)
         fake_image_features = fake_image_features / fake_image_features.norm(dim=-1, keepdim=True)
         fake_image_features = fake_image_features.detach()
@@ -195,7 +195,6 @@ class SPG_CGAN(TrainerX):
         d_fake_loss.backward()
 
 
-        # d_loss = (d_real_loss + d_fake_loss) / 2
         d_loss = d_real_loss + d_fake_loss
 
         if cfg.GRAD_CLIP:

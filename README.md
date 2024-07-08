@@ -6,10 +6,6 @@ Official implementation of the paper "[Soft Prompt Generation for Domain General
 
 **We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization.**
 
-Please follow instrcutions below to reproduce the results. 
-
-**We only give an example on PACS dataset in this code space.**
-
 <hr />
 
 ## Installation 

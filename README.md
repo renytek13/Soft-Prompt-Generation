@@ -4,8 +4,6 @@
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
 
-**We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization.**
-
 <hr />
 
 ## Installation 

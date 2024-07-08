@@ -131,17 +131,17 @@ See `scripts/spg_cgan/cross.sh`.
 
 ## Acknowledgements
 
-Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) repository. We thank the authors for releasing their code.
+Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) and [PDA](https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment) repository. We thank the authors for releasing their code.
 
 ## Citation
 
 If you use our code, please consider citing our work:
 
 ```bibtex
-@inproceedings{bai2024softpromptgenerationdomain,
+@inproceedings{bai2024soft,
   title={Soft Prompt Generation for Domain Generalization},
   author={Shuanghao, Bai and Yuedi, Zhang and Wanqi, Zhou and Zhirong, Luan and Badong, Chen},
-  booktitle={ECCV 2024 Workshop on Computer Vision and Pattern Recognition},
+  booktitle={European Conference on Computer Vision},
   year={2024}
 }
 ```

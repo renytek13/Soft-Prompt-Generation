@@ -43,7 +43,7 @@ cd ..
 * Clone SPG code repository and install requirements.
 ```bash
 # Clone SPG code base
-cd SoftPromptGenerationWithCGAN
+cd Soft-Prompt-Generation-with-CGAN
 
 # Install requirements
 pip install -r requirements.txt

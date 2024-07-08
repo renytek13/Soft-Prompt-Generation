@@ -1,4 +1,7 @@
 # Soft Prompt Generation with CGAN
+
+[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2404.19286)
+
 **We propose a new prompt learning paradigm Soft Prompt Generation (SPG), which offers a straightforward yet effective solution for Domain Generalization.**
 
 Please follow instrcutions below to reproduce the results. 
@@ -131,14 +134,14 @@ See `scripts/spg_cgan/cross.sh`.
 
 ## Acknowledgements
 
-Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) and [PDA](https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment) repository. We thank the authors for releasing their code.
+Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) repository. We thank the authors for releasing their code.
 
 ## Citation
 
 If you use our code, please consider citing our work:
 
 ```bibtex
-@inproceedings{bai2024soft,
+@inproceedings{bai2024softpromptgenerationdomain,
   title={Soft Prompt Generation for Domain Generalization},
   author={Shuanghao, Bai and Yuedi, Zhang and Wanqi, Zhou and Zhirong, Luan and Badong, Chen},
   booktitle={European Conference on Computer Vision},

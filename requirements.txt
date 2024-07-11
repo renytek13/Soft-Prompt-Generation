@@ -1,5 +1,6 @@
 ftfy
 regex
 tqdm
+packaging
 dassl
 git+https://github.com/openai/CLIP.git

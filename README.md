@@ -42,6 +42,7 @@ cd ..
 * Clone SPG code repository and install requirements.
 ```bash
 # Clone SPG code base
+git clone https://github.com/renytek13/Soft-Prompt-Generation-with-CGAN.git
 cd Soft-Prompt-Generation-with-CGAN
 
 # Install requirements

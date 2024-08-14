@@ -14,11 +14,26 @@ Official implementation of the paper "[Soft Prompt Generation for Domain General
 
 Authors: [Shuanghao Bai*](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang*, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 
+<hr />
+
+## 🎉 Highlights
+
 <div align="center">
-  <img src="./method.jpg" alt="Logo" width="100%">
+  <img src="./method.jpg" alt="Logo" width="90%">
 </div>
 
-<hr />
+> **<p align="justify"> Abstract:** *Large pre-trained vision language models (VLMs) have shown impressive zero-shot ability on downstream tasks with manually designed prompt. To further adapt VLMs to downstream tasks, soft prompt is proposed to replace manually designed prompt, which undergoes finetuning based on specific domain data. Prior prompt learning methods primarily learn a fixed prompt or residuled prompt from training samples. However, the learned prompts lack diversity and ignore information about unseen domains. In this paper, we reframe the prompt learning framework from a generative perspective and propose a simple yet efficient method for the Domain Generalization (DG) task, namely Soft Prompt Generation (SPG). Specifically, SPG consists of a two-stage training phase and an inference phase. During the training phase, we introduce soft prompt label for each domain, aiming to incorporate the generative model domain knowledge. During the inference phase, the generator of the generative model is employed to obtain instance-specific soft prompts for the unseen target domain. Extensive experiments on five domain generalization benchmarks of three DG tasks demonstrate that SPG achieves state-of-the-art performance. The code is available at https://github.com/renytek13/Soft-Prompt-Generation-with-CGAN* </p>
+
+<details>
+  
+<summary>Main Contributions</summary>
+
+1) We first experimentally verify the effectiveness of VLM on UDA downstream tasks. Then, based on this finding, we further propose a prompt-based distribution alignment (PDA) method to tune prompt to the target domain.
+2) The proposed PDA includes two training branches. First, the base branch ensures discrimination among different classes. Second, the aligned branch obtains the domain-invariant information by image-guided feature tuning.
+3) Extensive experiments demonstrate the effectiveness of the proposed PDA, which achieves state-of-the-art performance on Office-Home, Office-31 and VisDA-2017.
+   
+</details>
+
 
 ## 🛠️ Installation 
 For installation and other package requirements, please follow the instructions as follows. 
@@ -57,7 +72,7 @@ cd ..
 ```bash
 # Clone SPG code base
 git clone https://github.com/renytek13/Soft-Prompt-Generation-with-CGAN.git
-cd Soft-Prompt-Generation
+cd Soft-Prompt-Generation-with-CGAN
 
 # Install requirements
 pip install -r requirements.txt
@@ -127,7 +142,7 @@ Please refer to the section of **[Run Directly](#run-directly)**
 <hr />
 
 
-## Results
+## 📊 Results
 
 After the experiments are finished, you can obtain the average results looking into the log files.
 

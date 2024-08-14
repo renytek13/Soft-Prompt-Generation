@@ -12,11 +12,15 @@
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
 
-Authors: [Shuanghao Bai](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
+Authors: [Shuanghao Bai*](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang*, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
+
+<div align="center">
+  <img src="./method_comparison.jpg" alt="Logo" width="100%">
+</div>
 
 <hr />
 
-## Installation 
+## 🛠️ Installation 
 For installation and other package requirements, please follow the instructions as follows. 
 This codebase is tested on Ubuntu 20.04 LTS with python 3.8. Follow the below steps to create environment and install dependencies.
 
@@ -71,7 +75,7 @@ Follow [DATASETS.md](DATASETS.md) to install the datasets.
 <hr />
 
 
-## Run Directly
+## 📈 Run Directly
 
 We provide the running scripts in `scripts`, which allow you to reproduce the results on the paper. 
 Make sure you **modify the path in `$DATA`**!
@@ -139,7 +143,7 @@ See `scripts/spg_cgan/single.sh`.
 See `scripts/spg_cgan/cross.sh`.
 
 
-## Citation
+## 📝 Citation
 
 🥰 If our code is helpful to your research or projects, please consider citing our work: 
 
@@ -157,6 +161,6 @@ See `scripts/spg_cgan/cross.sh`.
 If you have any questions, please create an issue on this repository or contact us at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
 
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 Our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning), and [PDA](https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment) repository. We thank the authors for releasing their codes. If you use their codes, please consider citing these works as well. 

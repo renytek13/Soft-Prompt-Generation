@@ -98,12 +98,12 @@ If you wanna use our produced [data splits](datasets) and [domain prompt labels]
   
 <summary>If you wanna use the data splits and domain prompt labels produced by yourself. Please follow the instructions as follows.</summary>
 
+To obtain data splits and domain prompt labels, please run the bash file as follows.
+
 ```bash
 # Example: trains on PACS dataset with ResNet50 as the backbone. 
 bash scripts/spg_coop/spg_coop.sh pacs RN50
 ```
-
-Then, you can obtain data splits and domain prompt labels.
 
 </details>
 

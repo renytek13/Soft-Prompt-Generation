@@ -93,8 +93,10 @@ Make sure you **modify the path in `$DATA`**!
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
 <details>
+  
+If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
 
-<summary>If you wanna use our produced data splits and prompt labels. Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training):</summary>
+<summary>If you wanna use the data splits and prompt labels produced by yourself. Please follow the instructions as follows.</summary>
 
 </details>
 
@@ -124,7 +126,7 @@ bash scripts/test_all.sh pacs spg RN50
 
 ## Run Two-stage Training Paradigm
 
-If you wanna use the data splits and prompt labels produced by yourself. Please follow the instructions as follows:
+
 
 **First, when downloading the dataset, ignore the last step of downloading the split folder when following the [Data preparation](#data-preparation) steps above and just build the images directory as required.**
 

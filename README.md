@@ -92,62 +92,34 @@ Make sure you **modify the path in `$DATA`**!
 
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
-<details>
-  
 If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
 
-<summary>If you wanna use the data splits and prompt labels produced by yourself. Please follow the instructions as follows.</summary>
+<details>
+  
+<summary>If you wanna use the data splits and domain prompt labels produced by yourself. Please follow the instructions as follows.</summary>
+
+```bash
+# Example: trains on PACS dataset with ResNet50 as the backbone. 
+bash scripts/spg_coop/spg_coop.sh pacs RN50
+```
+
+Then, you can obtain data splits and domain prompt labels.
 
 </details>
-
-1. Ensure that you have downloaded the [PACS](./DATASETS.md#pacs) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
-
-2. Run the bash file as follows.
 
 
 ### Training Stage II: Generative Model Pre-training
 
-
-
-### Training 
 ```bash
 # Example: trains on PACS dataset with ResNet50 as the backbone.
 bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 ```
+
 ### Evaluation
 ```bash
 # An example of a test.
 bash scripts/test_all.sh pacs spg RN50
 ```
-
-
-<hr />
-
-
-## Run Two-stage Training Paradigm
-
-
-
-**First, when downloading the dataset, ignore the last step of downloading the split folder when following the [Data preparation](#data-preparation) steps above and just build the images directory as required.**
-
-### Stage I -- Produce the domain prompt labels
-
-All you need is `SPG/scripts/spg_coop/spg_coop.sh`, which contains two input arguments.
-Make sure you **modify the path in `$DATA`**!
-
-### Running
-```bash
-# Example: trains on PACS dataset with ResNet50 as the backbone.
-bash scripts/spg_coop/spg_coop.sh pacs RN50
-```
-
-
-### Stage II -- CGAN Pretraining
-
-Please refer to the section of **[Run Directly](#run-directly)**
-
-
-<hr />
 
 
 ## 📊 Results

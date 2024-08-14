@@ -1,8 +1,17 @@
 # Soft Prompt Generation for Domain Generalization [ECCV 2024]
 
-[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2404.19286)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-pacs)](https://paperswithcode.com/sota/domain-generalization-on-pacs?p=soft-prompt-generation-for-domain)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-vlcs)](https://paperswithcode.com/sota/domain-generalization-on-vlcs?p=soft-prompt-generation-for-domain)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-office-home)](https://paperswithcode.com/sota/domain-generalization-on-office-home?p=soft-prompt-generation-for-domain)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-terraincognita)](https://paperswithcode.com/sota/domain-generalization-on-terraincognita?p=soft-prompt-generation-for-domain)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-domainnet)](https://paperswithcode.com/sota/domain-generalization-on-domainnet?p=soft-prompt-generation-for-domain)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2404.19286v2-b31b1b.svg)](https://arxiv.org/abs/2404.19286v2)
+![GitHub stars](https://img.shields.io/github/stars/renytek13/Soft-Prompt-Generation-with-CGAN)
+![GitHub forks](https://img.shields.io/github/forks/renytek13/Soft-Prompt-Generation-with-CGAN)
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
+Authors: [Shuanghao Bai](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 
 <hr />
 
@@ -53,8 +62,8 @@ pip install -r requirements.txt
 <hr />
 
 
-## Data preparation
-**Please download the datasets `PACS`, `VLCS`, `office_home`, `terra_incognita` and `domainnet`.**
+## Data Preparation
+**Please download the datasets `PACS`, `VLCS`, `office_home`, `terra_incognita`, and `domainnet`.**
 
 Follow [DATASETS.md](DATASETS.md) to install the datasets.
 
@@ -74,12 +83,12 @@ If you wanna use our produced data splits and prompt labels. Please follow the i
 
 ### Training 
 ```bash
-# Example: trains on PACS dataset with ResNet50 as backbone.
+# Example: trains on PACS dataset with ResNet50 as the backbone.
 bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 ```
 ### Evaluation
 ```bash
-# An expample of test.
+# An example of a test.
 bash scripts/test_all.sh pacs spg RN50
 ```
 
@@ -98,9 +107,9 @@ If you wanna use the data splits and prompt labels produced by yourself. Please 
 All you need is `SPG/scripts/spg_coop/spg_coop.sh`, which contains two input arguments.
 Make sure you **modify the path in `$DATA`**!
 
-### Runing
+### Running
 ```bash
-# Example: trains on PACS dataset with ResNet50 as backbone.
+# Example: trains on PACS dataset with ResNet50 as the backbone.
 bash scripts/spg_coop/spg_coop.sh pacs RN50
 ```
 
@@ -129,13 +138,9 @@ See `scripts/spg_cgan/single.sh`.
 See `scripts/spg_cgan/cross.sh`.
 
 
-## Acknowledgements
-
-Our code is based on [CoOp](https://github.com/KaiyangZhou/CoOp) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) repository. We thank the authors for releasing their code.
-
 ## Citation
 
-If you use our code, please consider citing our work:
+🥰 If our code is helpful to your research or projects, please consider citing our work: 
 
 ```bibtex
 @inproceedings{bai2024softpromptgenerationdomain,
@@ -148,4 +153,9 @@ If you use our code, please consider citing our work:
 
 ## Contact
 
-If you have any questions, please contact at [zyd993@stu.xjtu.edu.cn](mailto:zyd993@stu.xjtu.edu.cn).
+If you have any questions, please create an issue on this repository or contact at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
+
+
+## Acknowledgements
+
+Our code is based on [CoOp and CoCoOp](https://github.com/KaiyangZhou/CoOp), [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning), and [PDA](https://github.com/BaiShuanghao/Prompt-based-Distribution-Alignment) repository. We thank the authors for releasing their code. If you use their model and code, please consider citing these works as well. 

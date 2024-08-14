@@ -10,11 +10,11 @@ BACKBONE=$1 # backbone name
 TRAINER=$2
 GPU=$3
 
+
 # bash scripts/baseline/cross_clip.sh RN50 CLIP_ZS 0
-# bash scripts/baseline/cross_clip.sh RN50 CLIP_LR 0
 
 # bash scripts/baseline/cross_clip.sh ViT-B/16 CLIP_ZS 0
-# bash scripts/baseline/cross_clip.sh ViT-B/16 CLIP_LR 0
+
 
 DATASET=cross
 for SEED in 1

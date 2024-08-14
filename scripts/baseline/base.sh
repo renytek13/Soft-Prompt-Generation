@@ -17,8 +17,6 @@ GPU=$3
 # bash scripts/baseline/base.sh RN50 VP 0
 # bash scripts/baseline/base.sh RN50 VPT 0
 
-# bash scripts/baseline/base.sh ViT-B/16 CLIP_ZS 0
-# bash scripts/baseline/base.sh ViT-B/16 CLIP_LR 0
 # bash scripts/baseline/base.sh ViT-B/16 CoOp 0
 # bash scripts/baseline/base.sh ViT-B/16 CoCoOp 0
 # bash scripts/baseline/base.sh ViT-B/16 DPLCLIP 0

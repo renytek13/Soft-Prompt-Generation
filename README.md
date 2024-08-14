@@ -109,6 +109,7 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50
 
 
 ### Training Stage II: Generative Model Pre-training
+Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path.
 
 For multi-source Domain Generalization
 ```bash

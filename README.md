@@ -15,7 +15,7 @@ Official implementation of the paper "[Soft Prompt Generation for Domain General
 Authors: [Shuanghao Bai*](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang*, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 
 <div align="center">
-  <img src="./method_comparison.jpg" alt="Logo" width="100%">
+  <img src="./method.jpg" alt="Logo" width="100%">
 </div>
 
 <hr />

@@ -92,7 +92,11 @@ Make sure you **modify the path in `$DATA`**!
 
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
-If you wanna use our produced data splits and prompt labels. Please go to the [Training Stage II: Generative Model Pre-training](###Training Stage II: Generative Model Pre-training):
+<details>
+
+<summary>If you wanna use our produced data splits and prompt labels. Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training):</summary>
+
+</details>
 
 1. Ensure that you have downloaded the [PACS](./DATASETS.md#pacs) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 

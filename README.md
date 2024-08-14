@@ -11,6 +11,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/renytek13/Soft-Prompt-Generation-with-CGAN)
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
+
 Authors: [Shuanghao Bai](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 
 <hr />
@@ -143,9 +144,9 @@ See `scripts/spg_cgan/cross.sh`.
 🥰 If our code is helpful to your research or projects, please consider citing our work: 
 
 ```bibtex
-@inproceedings{bai2024softpromptgenerationdomain,
+@inproceedings{bai2024soft,
   title={Soft Prompt Generation for Domain Generalization},
-  author={Shuanghao, Bai and Yuedi, Zhang and Wanqi, Zhou and Zhirong, Luan and Badong, Chen},
+  author={Bai, Shuanghao and Zhang, Yuedi and Zhou, Wanqi and Luan, Zhirong and Chen, Badong},
   booktitle={European Conference on Computer Vision},
   year={2024}
 }
@@ -153,7 +154,7 @@ See `scripts/spg_cgan/cross.sh`.
 
 ## Contact
 
-If you have any questions, please create an issue on this repository or contact at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
+If you have any questions, please create an issue on this repository or contact us at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
 
 
 ## Acknowledgements

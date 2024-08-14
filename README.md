@@ -144,7 +144,7 @@ tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1
 
 ## 📝 Citation
 
-🥰 If our code is helpful to your research or projects, please consider citing our work: 
+If our code is helpful to your research or projects, please consider citing our work! 🥰 
 
 ```bibtex
 @inproceedings{bai2024soft,
@@ -155,7 +155,7 @@ tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1
 }
 ```
 
-## Contact
+## 📨 Contact
 
 If you have any questions, please create an issue on this repository or contact us at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
 

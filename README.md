@@ -79,27 +79,29 @@ pip install -r requirements.txt
 ```
 
 
-<hr />
-
-
-## Data Preparation
+## 📁 Data Preparation
 **Please download the datasets `PACS`, `VLCS`, `office_home`, `terra_incognita`, and `domainnet`.**
 
 Follow [DATASETS.md](DATASETS.md) to install the datasets.
 
-<hr />
 
-
-## 📈 Run Directly
+## 📈 Training and Evaluation
 
 We provide the running scripts in `scripts`, which allow you to reproduce the results on the paper. 
 Make sure you **modify the path in `$DATA`**!
 
-If you wanna use our produced data splits and prompt labels. Please follow the instructions as follows:
+### Training Stage I: Domain Prompt Labels Learning (Optional)
+
+If you wanna use our produced data splits and prompt labels. Please go to the [Training Stage II: Generative Model Pre-training](###Training Stage II: Generative Model Pre-training):
 
 1. Ensure that you have downloaded the [PACS](./DATASETS.md#pacs) dataset file as well as our segmentation file by following the steps above and our pre-trained prompt label directory [prompt_labels](prompt_labels/).
 
 2. Run the bash file as follows.
+
+
+### Training Stage II: Generative Model Pre-training
+
+
 
 ### Training 
 ```bash

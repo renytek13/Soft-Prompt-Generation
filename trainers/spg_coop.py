@@ -129,6 +129,14 @@ class SPG_CoOp(BaseDG):
         classnames = self.dm.dataset.classnames
         if not cfg.TEST.NO_TEST:
             self.test_best_result = -np.inf
+            
+        if torch.cuda.is_available() and cfg.USE_CUDA:
+            if len(cfg.GPU) == 1:
+                self.device = torch.device("cuda:{}".format(cfg.GPU))
+            else:
+                self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
 
         print(f"Loading CLIP (backbone: {cfg.MODEL.BACKBONE.NAME})...")
         clip_model = load_clip_to_cpu(cfg)

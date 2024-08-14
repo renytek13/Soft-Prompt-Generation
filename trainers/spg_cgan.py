@@ -107,7 +107,15 @@ class SPG_CGAN(TrainerX):
     def build_model(self):
         cfg = self.cfg
         classnames = self.dm.dataset.classnames
-
+        
+        if torch.cuda.is_available() and cfg.USE_CUDA:
+            if len(cfg.GPU) == 1:
+                self.device = torch.device("cuda:{}".format(cfg.GPU))
+            else:
+                self.device = torch.device("cuda")
+        else:
+            self.device = torch.device("cpu")
+            
         # loading CLIP model
         self.clip_model = load_clip_to_cpu(cfg).to(self.device)
 
@@ -254,10 +262,10 @@ class SPG_CGAN(TrainerX):
 
         self.optimizer_G.step()
 
-
         loss_summary = {
             "g_loss": g_loss.item(),
             "d_loss": d_loss.item(),
+            "loss": g_loss.item() + d_loss.item(),
         }
 
         if (self.batch_idx + 1) == self.num_batches:

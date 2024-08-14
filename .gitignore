@@ -4,6 +4,7 @@ __pycache__/
 .vscode
 *.pt
 outputs
+outputs_baseline
 scripts/command.md
 visual_output
 abandoned_case/

@@ -40,8 +40,10 @@ CUSTOM_TEMPLATES = {
     "SINGLE_PACS": "a photo of a {}.",
     "SINGLE_VLCS": "a photo of a {}.",
     "SINGLE_OfficeHome": "a photo of a {}.",
+    
     "CROSS": "a photo of a {}.",
     "CROSS_TEST": "a photo of a {}.",
+    "CROSS_DomainNet_TEST": "a photo of a {}.",
 }
 
 IMAGENET_TEMPLATES = [

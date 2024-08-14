@@ -41,7 +41,7 @@ class CROSS_DomainNet_TEST(DatasetBase):
         image_dir = osp.join(dataset_dir, "images")
         split_dir = osp.join(dataset_dir, "spg_coop_splits")
 
-        source_domains = listdir_nohidden(split_dir)
+        source_domains = [f for f in listdir_nohidden(split_dir) if osp.isfile(osp.join(split_dir, f))]
         source_domains.sort()
         for domain, dfile in enumerate(source_domains):
             split_path = osp.join(split_dir, dfile)

@@ -98,49 +98,57 @@ If you wanna use our produced [data splits](datasets) and [domain prompt labels]
   
 <summary>If you wanna use the data splits and domain prompt labels produced by yourself. Please follow the instructions below.</summary>
 
-To obtain data splits and domain prompt labels, please run the bash file as follows.
+To obtain data splits and domain prompt labels, please run the bash file in [scripts folder](scripts/spg_coop) as follows.
 
 ```bash
-# Example: trains on PACS dataset with ResNet50 as the backbone. 
-bash scripts/spg_coop/spg_coop.sh pacs RN50
+# Example: trains on PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
+bash scripts/spg_coop/spg_coop.sh pacs RN50 0
 ```
 
 </details>
 
 
 ### Training Stage II: Generative Model Pre-training
-Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path.
+Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path. The bash files of Three types of DG tasks in [scripts folder](scripts/spg_cgan).
 
 For multi-source Domain Generalization
 ```bash
-# Example: trains on PACS dataset with ResNet50 as the backbone.
-bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
+# Example: trains on PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
+bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50 0
 ```
 
 For Single-source Domain Generation
-See `scripts/spg_cgan/single.sh`.
+```bash
+# Example: trains on VLCS dataset with ResNet50 as the backbone, and the gpu id is 1. 
+bash scripts/spg_cgan/single.sh vlcs spg RN50 1
+```
 
 For Cross-dataset Domain Generation
-
-See `scripts/spg_cgan/cross.sh`.
+```bash
+# Example: trains on DomainNet dataset with ViT-B/16 as the backbone, and the gpu id is 2. 
+bash scripts/spg_cgan/cross.sh spg ViT-B/16 2
+```
 
 
 ### Evaluation
+For multi-source Domain Generalization
 ```bash
-# An example of a test.
-bash scripts/test_all.sh pacs spg RN50
+# Example: test PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
+bash scripts/test_all.sh pacs spg RN50 0
 ```
 
 
-## 📊 Results
+## 📊 Supported Methods
+Supported methods in this codespace are as follows:
 
-After the experiments are finished, you can obtain the average results by looking into the log files.
-
-To observe the resultant change curve, you can run
-
-```bash
-tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1
-```
+| Method                    |                   Paper                        |                             Code                                     |
+|---------------------------|:----------------------------------------------:|:--------------------------------------------------------------------:|
+| CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |
+| CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |
+| VP                        | [-](https://arxiv.org/abs/2203.17274)          |  [link](https://github.com/hjbahng/visual_prompting)                 | 
+| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274)  |  [link](https://github.com/KMnP/vpt)                                 | 
+| MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) | 
+| DPL                       | [TJSAI 2023](https://arxiv.org/abs/2111.12853) |  [link](https://github.com/shogi880/DPLCLIP)                         |
 
 
 ## 📝 Citation
@@ -158,7 +166,7 @@ If our code is helpful to your research or projects, please consider citing our 
 
 ## 📨 Contact
 
-If you have any questions, please create an issue on this repository or contact us at baishuanghao@stuy.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
+If you have any questions, please create an issue on this repository or contact us at baishuanghao@stu.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
 
 
 ## 🙏 Acknowledgements

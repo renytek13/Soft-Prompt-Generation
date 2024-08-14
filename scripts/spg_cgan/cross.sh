@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# source activate spg
+source activate spg
 
-DATA= # your directory of dataset
+DATA=   # ******* your data path *******
 TRAINER=SPG_CGAN
 
 CFG=$1          # config file
 BACKBONE=$2     # backbone name
+GPU=$3
 
-# bash scripts/spg_cgan/cross.sh spg RN50
-# bash scripts/spg_cgan/cross.sh spg ViT-B/16
+# bash scripts/spg_cgan/cross.sh spg RN50 0
+# bash scripts/spg_cgan/cross.sh spg ViT-B/16 1
 
 for SEED in 1
 do
@@ -30,7 +31,8 @@ do
         --dataset-config-file configs/datasets/cross_dataset/cross.yaml \
         --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
         --output-dir ${DIR} \
-        --seed ${SEED}      
+        --seed ${SEED} \
+        --gpu ${GPU}        
     fi
   done
 
@@ -55,6 +57,7 @@ do
         --output-dir ${DIR} \
         --model-dir ${MODEL_DIR} \
         --seed ${SEED} \
+        --gpu ${GPU} \
         --eval-only
     fi
   done

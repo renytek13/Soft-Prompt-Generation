@@ -1,26 +1,27 @@
 #!/bin/bash
 
-# source activate spg
+source activate spg
 
-DATA= # your directory of dataset
+DATA=   # ******* your data path *******
 TRAINER=SPG_CoOp
 CFG=b32_ep50    # config file
 
 DATASET=$1
 BACKBONE=$2     # backbone name
+GPU=$3
 
 
-# bash scripts/spg_coop/spg_coop.sh pacs RN50
-# bash scripts/spg_coop/spg_coop.sh vlcs RN50
-# bash scripts/spg_coop/spg_coop.sh office_home RN50
-# bash scripts/spg_coop/spg_coop.sh terra_incognita RN50
-# bash scripts/spg_coop/spg_coop.sh domainnet RN50
+# bash scripts/spg_coop/spg_coop.sh pacs RN50 0
+# bash scripts/spg_coop/spg_coop.sh vlcs RN50 1
+# bash scripts/spg_coop/spg_coop.sh office_home RN50 2 
+# bash scripts/spg_coop/spg_coop.sh terra_incognita RN50 3
+# bash scripts/spg_coop/spg_coop.sh domainnet RN50 4
 
-# bash scripts/spg_coop/spg_coop.sh pacs ViT-B/16
-# bash scripts/spg_coop/spg_coop.sh vlcs ViT-B/16
-# bash scripts/spg_coop/spg_coop.sh office_home ViT-B/16
-# bash scripts/spg_coop/spg_coop.sh terra_incognita ViT-B/16
-# bash scripts/spg_coop/spg_coop.sh domainnet ViT-B/16
+# bash scripts/spg_coop/spg_coop.sh pacs ViT-B/16 0
+# bash scripts/spg_coop/spg_coop.sh vlcs ViT-B/16 1
+# bash scripts/spg_coop/spg_coop.sh office_home ViT-B/16 2
+# bash scripts/spg_coop/spg_coop.sh terra_incognita ViT-B/16 3
+# bash scripts/spg_coop/spg_coop.sh domainnet ViT-B/16 4
 
 if [ "$DATASET" = "pacs" ]; then
   ALL_DOMAIN=('a' 'c' 'p' 's')
@@ -51,6 +52,7 @@ do
       --trainer ${TRAINER} \
       --dataset-config-file configs/datasets/${DATASET}_coop.yaml \
       --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
-      --output-dir ${DIR}
+      --output-dir ${DIR} \
+      --gpu ${GPU}
   fi
 done

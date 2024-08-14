@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# source activate spg
+source activate spg
 
-DATA= # your directory of dataset
+DATA=   # ******* your data path *******
 TRAINER=SPG_CGAN
 
 DATASET=$1
 CFG=$2  # config file
 BACKBONE=$3 # backbone name
+GPU=$4
 
-# bash scripts/test_all.sh pacs spg RN50
+# bash scripts/test_all.sh pacs spg RN50 0
 
 if [ "$DATASET" = "pacs" ]; then
   ALL_DOMAIN=('a' 'c' 'p' 's')
@@ -43,6 +44,7 @@ do
       --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
       --output-dir ${DIR} \
       --model-dir ${MODEL_DIR} \
+      ---gpu ${GPU} \
       --eval-only
   fi
 done

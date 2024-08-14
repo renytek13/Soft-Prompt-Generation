@@ -2,25 +2,27 @@
 
 # source activate spg
 
-DATA= # your directory of dataset
+DATA=   # ******* your data path ******* 
 TRAINER=SPG_CGAN
 
 DATASET=$1
 CFG=$2          # config file
 BACKBONE=$3     # backbone name
+GPU=$4
 
 
-# bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
-# bash scripts/spg_cgan/spg_cgan.sh vlcs spg RN50
-# bash scripts/spg_cgan/spg_cgan.sh office_home spg RN50
-# bash scripts/spg_cgan/spg_cgan.sh terra_incognita spg RN50
-# bash scripts/spg_cgan/spg_cgan.sh domainnet spg RN50
+# bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50 0
+# bash scripts/spg_cgan/spg_cgan.sh vlcs spg RN50 0
+# bash scripts/spg_cgan/spg_cgan.sh office_home spg RN50 1
+# bash scripts/spg_cgan/spg_cgan.sh terra_incognita spg RN50 1
+# bash scripts/spg_cgan/spg_cgan.sh domainnet spg RN50 2
 
-# bash scripts/spg_cgan/spg_cgan.sh pacs spg ViT-B/16
-# bash scripts/spg_cgan/spg_cgan.sh vlcs spg ViT-B/16
-# bash scripts/spg_cgan/spg_cgan.sh office_home spg ViT-B/16
-# bash scripts/spg_cgan/spg_cgan.sh terra_incognita spg ViT-B/16
-# bash scripts/spg_cgan/spg_cgan.sh domainnet spg ViT-B/16
+# bash scripts/spg_cgan/spg_cgan.sh pacs spg ViT-B/16 0
+# bash scripts/spg_cgan/spg_cgan.sh vlcs spg ViT-B/16 0
+# bash scripts/spg_cgan/spg_cgan.sh office_home spg ViT-B/16 1
+# bash scripts/spg_cgan/spg_cgan.sh terra_incognita spg ViT-B/16 1
+# bash scripts/spg_cgan/spg_cgan.sh domainnet spg ViT-B/16 2
+
 
 if [ "$DATASET" = "pacs" ]; then
   ALL_DOMAIN=('a' 'c' 'p' 's')
@@ -53,7 +55,8 @@ do
         --dataset-config-file configs/datasets/multi_source/${DATASET}.yaml \
         --config-file configs/trainers/${TRAINER}/${CFG}.yaml \
         --output-dir ${DIR} \
-        --seed ${SEED}      
+        --seed ${SEED} \
+        --gpu ${GPU}      
     fi
   done
 done

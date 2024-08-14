@@ -7,7 +7,7 @@ from dassl.engine import build_trainer
 
 # custom
 from datasets import *
-from trainers import *
+from trainers_baseline import *
 
 
 def print_args(args, cfg):
@@ -30,11 +30,11 @@ def reset_cfg(cfg, args):
 
     if args.output_dir:
         cfg.OUTPUT_DIR = args.output_dir
-    
+
     cfg.MODEL_DIR = ""
     if args.model_dir:
         cfg.MODEL_DIR = args.model_dir
-
+        
     if args.resume:
         cfg.RESUME = args.resume
 
@@ -49,9 +49,9 @@ def reset_cfg(cfg, args):
 
     if args.backbone:
         cfg.MODEL.BACKBONE.NAME = args.backbone
-    
+
     # embedding dimension size for image feature
-    if cfg.MODEL.BACKBONE.NAME == "RN50":
+    if cfg.MODEL.BACKBONE.NAME == "RN5O":
         cfg.FEAT_DIM = 1024
     elif cfg.MODEL.BACKBONE.NAME == "ViT-B/16":
         cfg.FEAT_DIM = 512
@@ -129,7 +129,7 @@ def reset_cfg(cfg, args):
             DOMAINS.pop(cfg.SOURCE_DOMAIN)
             cfg.TARGET_DOMAINS = list(DOMAINS.keys())
             cfg.DATASET.TARGET_DOMAINS = list(DOMAINS.values())
-
+        
     if args.source_datasets:
         DATASETS = {'d': "domainnet", 'o':"office_home_dg", 'p':"PACS", 't':"terra", 'v':"VLCS"}
             
@@ -161,31 +161,85 @@ def extend_cfg(cfg):
     
     cfg.MODEL.BACKBONE.PATH = "./assets"        # path of pretrained CLIP model
     cfg.TEST.FINAL_MODEL = "best_val"
+    cfg.FEAT_DIM = 1024     # embedding dimension size for image feature
     cfg.LATENT_DIM = 100    # size of latent space
-    cfg.GRAD_CLIP = True
-    cfg.D_MAX_NORM_WEIGHT = 5e-2
-    cfg.D_MAX_NORM_BIAS = 5e-1
-    cfg.D_MAX_NORM_LAST = 5
-    cfg.G_MAX_NORM_WEIGHT = 5e-3
-    cfg.G_MAX_NORM_BIAS = 5e-8
-    cfg.G_MAX_NORM_BIAS_LAST = 1
+    cfg.MODEL.PATCH_SIZE = 16
+    cfg.MODEL.HIDDEN_SIZE = 768
+    cfg.MODEL.NUM_LAYER = 12
     
     if 'CLIP' in args.trainer:
         cfg.TRAINER.CLIP = CN()
         cfg.TRAINER.CLIP.PREC = "fp16"  # fp16, fp32, amp 
         
-    elif 'SPG' in args.trainer:
-        cfg.TRAINER.SPG = CN()
-        cfg.TRAINER.SPG.PREC = "fp16"       # fp16, fp32, amp  
-        cfg.TRAINER.SPG.N_CTX = 16          # number of text context vectors
-        cfg.TRAINER.SPG.CSC = False         # class-specific context
-        cfg.TRAINER.SPG.CTX_INIT = ""       # initialization words
-        cfg.TRAINER.SPG.CLASS_TOKEN_POSITION = "end"  # 'middle' or 'end' or 'front'
-        if 'GAN' in args.trainer:
-            cfg.TRAINER.SPG.PREC = "fp32"       # fp16, fp32, amp  
-            cfg.OPTIM.NAME = 'AdamW'
-            cfg.OPTIM.WEIGHT_DECAY = 1e-4
+    if args.trainer == 'DPLCLIP':
+            cfg.TRAINER.DPLCLIP = CN()
+            cfg.TRAINER.DPLCLIP.PREC = "fp16"
+            cfg.TRAINER.DPLCLIP.MLP_WIDTH = 512
+            cfg.TRAINER.DPLCLIP.MLP_DEPTH = 3
+            cfg.TRAINER.DPLCLIP.MLP_DROPOUT = 0.1
+            cfg.TRAINER.DPLCLIP.EMBEDDING_DIM = 512
+            cfg.TRAINER.DPLCLIP.N_CTX = 16
+            cfg.TRAINER.DPLCLIP.CTX_INIT = "a photo of a"
         
+    if args.trainer == 'CoOp':
+        cfg.TRAINER.COOP = CN()
+        cfg.TRAINER.COOP.PREC = "fp16"      # fp16, fp32, amp
+        cfg.TRAINER.COOP.N_CTX = 16         # number of context vectors
+        cfg.TRAINER.COOP.CSC = False        # class-specific context
+        cfg.TRAINER.COOP.CTX_INIT = "a photo of a"      # initialization words
+        cfg.TRAINER.COOP.CLASS_TOKEN_POSITION = "end"  # 'middle' or 'end' or 'front'
+        
+    elif args.trainer == 'CoCoOp':
+        cfg.TRAINER.COCOOP = CN()
+        cfg.TRAINER.COCOOP.PREC = "fp16"    # fp16, fp32, amp
+        cfg.TRAINER.COCOOP.N_CTX = 16       # number of context vectors
+        cfg.TRAINER.COCOOP.CSC = False        # class-specific context
+        cfg.TRAINER.COCOOP.CTX_INIT = "a photo of a"    # initialization words
+        cfg.TRAINER.COCOOP.CLASS_TOKEN_POSITION = "end"  # 'middle' or 'end' or 'front'
+        
+    elif args.trainer == 'VP':
+        cfg.TRAINER.VP = CN()
+        cfg.TRAINER.VP.N_CTX = 16
+        cfg.TRAINER.VP.CTX_INIT = "a photo of a"
+        cfg.TRAINER.VP.PREC = "fp16"
+        cfg.TRAINER.VP.TYPE = "random"
+        cfg.TRAINER.VPT = CN()
+        cfg.TRAINER.VPT.NUM_TOKENS = 10
+    
+    elif args.trainer == 'VPT':
+        cfg.TRAINER.VPT = CN()
+        cfg.TRAINER.VPT.N_CTX = 16
+        cfg.TRAINER.VPT.CTX_INIT = "a photo of a"
+        cfg.TRAINER.VPT.PREC = "fp16"
+        cfg.TRAINER.VPT.VP = True
+        cfg.TRAINER.VPT.NUM_TOKENS = 10
+        cfg.TRAINER.VPT.LOCATION = "middle"
+        cfg.TRAINER.VPT.V_DEEP = False
+        cfg.TRAINER.VPT.DEEP_LAYERS = None # if set to be an int, then do partial-deep prompt tuning
+        cfg.TRAINER.VPT.DROPOUT = 0.0
+        
+        cfg.TRAINER.VPT.ENABLE_CONV = False
+        cfg.TRAINER.VPT.TYPE = "random"
+
+    elif args.trainer == 'MaPLe':
+        cfg.TRAINER.MAPLE = CN()
+        cfg.TRAINER.MAPLE.PREC = "fp16"
+        cfg.TRAINER.MAPLE.DROPOUT = 0.0
+        cfg.TRAINER.MAPLE.DEEP_LAYERS = None 
+        cfg.TRAINER.MAPLE.SHARE_LAYER = cfg.TRAINER.MAPLE.DEEP_LAYERS
+        
+        cfg.TRAINER.MAPLE.TP = True
+        cfg.TRAINER.MAPLE.T_DEEP = True
+        cfg.TRAINER.MAPLE.CSC = False  
+        cfg.TRAINER.MAPLE.N_CTX = 2     # number of text context vectors
+        cfg.TRAINER.MAPLE.CTX_INIT = "a photo of a"
+        cfg.TRAINER.MAPLE.CLASS_TOKEN_POSITION = "end"  
+        
+        cfg.TRAINER.MAPLE.VP = True
+        cfg.TRAINER.MAPLE.V_DEEP = cfg.TRAINER.MAPLE.T_DEEP
+        cfg.TRAINER.MAPLE.NUM_TOKENS = cfg.TRAINER.MAPLE.N_CTX    # number of visual context vectors
+        cfg.TRAINER.MAPLE.LOCATION = "middle" 
+
 
 def setup_cfg(args):
     cfg = get_cfg_default()
@@ -227,7 +281,7 @@ def main(args):
     trainer = build_trainer(cfg)
 
     if args.eval_only:
-        trainer.load_model(args.model_dir, epoch=None)
+        trainer.load_model(args.model_dir, epoch=args.load_epoch)
         trainer.test()
         return
 
@@ -248,7 +302,7 @@ if __name__ == "__main__":
     
     parser.add_argument("--source-domains", type=str, nargs="+", help="source domains for DA/DG")
     parser.add_argument("--target-domains", type=str, nargs="+", help="target domains for DA/DG")
-
+    
     parser.add_argument("--source-datasets", type=str, nargs="+", help="source datasets for DA/DG")
     parser.add_argument("--target-datasets", type=str, nargs="+", help="target datasets for DA/DG")
     

@@ -110,10 +110,19 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50
 
 ### Training Stage II: Generative Model Pre-training
 
+For multi-source Domain Generalization
 ```bash
 # Example: trains on PACS dataset with ResNet50 as the backbone.
 bash scripts/spg_cgan/spg_cgan.sh pacs spg RN50
 ```
+
+For Single-source Domain Generation
+See `scripts/spg_cgan/single.sh`.
+
+For Cross-dataset Domain Generation
+
+See `scripts/spg_cgan/cross.sh`.
+
 
 ### Evaluation
 ```bash
@@ -124,18 +133,13 @@ bash scripts/test_all.sh pacs spg RN50
 
 ## 📊 Results
 
-After the experiments are finished, you can obtain the average results looking into the log files.
+After the experiments are finished, you can obtain the average results by looking into the log files.
 
 To observe the resultant change curve, you can run
-`tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1`.
 
-## Single-source Domain Generation
-
-See `scripts/spg_cgan/single.sh`.
-
-## Cross-dataset Domain Generation
-
-See `scripts/spg_cgan/cross.sh`.
+```bash
+tensorflow --logdir=outputs/SPG/SPG_CGAN/pacs/spg/RN50/a/seed_1
+```
 
 
 ## 📝 Citation

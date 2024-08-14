@@ -96,7 +96,7 @@ If you wanna use our produced [data splits](datasets) and [domain prompt labels]
 
 <details>
   
-<summary>If you wanna use the data splits and domain prompt labels produced by yourself. Please follow the instructions as follows.</summary>
+<summary>If you wanna use the data splits and domain prompt labels produced by yourself. Please follow the instructions below.</summary>
 
 To obtain data splits and domain prompt labels, please run the bash file as follows.
 

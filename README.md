@@ -80,7 +80,7 @@ pip install -r requirements.txt
 
 
 ## 📁 Data Preparation
-**Please download the datasets `PACS`, `VLCS`, `office_home`, `terra_incognita`, and `domainnet`.**
+**Please download the datasets `PACS`, `VLCS`, `Office-Home`, `TerraIncognita`, and `DomainNet`.**
 
 Follow [DATASETS.md](DATASETS.md) to install the datasets.
 

@@ -29,7 +29,7 @@ To ensure reproducibility and fairness in future work, we provide a fixed set of
 - Download real domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/real.zip.
 - Download sketch domain images from http://csr.bu.edu/ftp/visda/2019/multi-source/sketch.zip.
 - Extract the above downloaded images to `$DATA/DomainNet/images`.
-- Download `spg_coop_splits.zip` from this [link](**...(NEED FINISHED)**) and extract the folder under `$DATA/DomainNet`.
+- Download `spg_coop_splits.zip` from this [link](https://drive.google.com/file/d/11w_RI5Rr2mw-UHB469XYNU5SSaCpbECD/view?usp=drive_link) and extract the folder under `$DATA/DomainNet`.
 
 The specific directory structure is as follows.
 ```
@@ -47,7 +47,7 @@ domainnet/
 ### OfficeHome
 - Create a folder named `office_home_dg/` under `$DATA`.
 - Download `office_home_dg.zip` from https://drive.google.com/uc?id=1gkbf_KaxoBws-GWT3XIPZ7BnkqbAxIFa and extract the folder `office_home_dg/`. Then rename the folder `office_home_dg` to `images` and put it under `OfficeHome/`.
-- Download `spg_coop_splits.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/OfficeHome`.
+- Download `spg_coop_splits.zip` from this [link](https://drive.google.com/file/d/1a7ZZDDr7HQV8Y4zIHNuim416pqaV12aw/view?usp=sharing) and and extract the folder under `$DATA/OfficeHome`.
 
 The specific directory structure is as follows
 ```
@@ -63,7 +63,7 @@ office_home_dg/
 ### PACS
 - Create a folder named `PACS/` under `$DATA`.
 - Download `pacs.zip` from https://drive.google.com/uc?id=1m4X4fROCCXMO0lRLrr6Zz9Vb3974NWhE and extract the folder `pacs/images/`. Then put the folder `images/` under `PACS/`.
-- Download `spg_coop_splits.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/PACS`.
+- Download `spg_coop_splits.zip` from this [link](https://drive.google.com/file/d/16kvPEcgrXLPgLTGUGMjJBiTHlIG-Ms5D/view?usp=sharing) and and extract the folder under `$DATA/PACS`.
 
 The specific directory structure is as follows
 ```
@@ -78,8 +78,8 @@ PACS/
 
 ### TerraIncognita
 - Create a folder named `terra/` under `$DATA`.
-- Download **...zip(NEED FINISHED)** from **...(NEED FINISHED)** and extract the folder. Then put the folder `images/` under `TerraIncognita/`.
-- Download `spg_coop_splits.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/TerraIncognita`.
+- Download images.zip from this [link](https://drive.google.com/file/d/1mgKVQEnkHaezXdXGf1v09y2PHoY98J7Y/view?usp=sharing) and extract the folder. Then put the folder `images/` under `TerraIncognita/`.
+- Download `spg_coop_splits.zip` from this [link](https://drive.google.com/file/d/1sNHNFDSXBJa0IkbFgmbLiPcp-78H6B-j/view?usp=sharing) and and extract the folder under `$DATA/TerraIncognita`.
 
 The specific directory structure is as follows
 ```
@@ -95,7 +95,7 @@ terra/
 ### VLCS
 - Create a folder named `VLCS/` under `$DATA`.
 - Download `vlcs.zip` from https://drive.google.com/uc?id=1r0WL5DDqKfSPp9E3tRENwHaXNs1olLZd and extract the folder `VLCS/`. Then rename the folder `VLCS` to `images` and put it under `VLCS/`.
-- Download `spg_coop_splits.zip` from this [link](**...(NEED FINISHED)**) and and extract the folder under `$DATA/VLCS`.
+- Download `spg_coop_splits.zip` from this [link](https://drive.google.com/file/d/1oekgvQlLudLH-_UcBNH3bUwfQJYhNK8W/view?usp=sharing) and and extract the folder under `$DATA/VLCS`.
 
 The specific directory structure is as follows
 ```

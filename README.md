@@ -92,7 +92,7 @@ Make sure you **modify the path in `$DATA`**!
 
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
-If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
+We provid our own [dataset splits file](https://drive.google.com/drive/folders/1sa7FNaWgs_8Eh4JMO1GZtTUMXqcFRirK?usp=drive_link) and the trained [prompt labels](). If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
 
 <details>
   
@@ -132,6 +132,7 @@ bash scripts/spg_cgan/cross.sh spg ViT-B/16 2
 
 ### Evaluation
 For multi-source Domain Generalization
+**We provid our pre-trained [models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link) and you can directly evaluate on those models.**
 ```bash
 # Example: test PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
 bash scripts/test_all.sh pacs spg RN50 0

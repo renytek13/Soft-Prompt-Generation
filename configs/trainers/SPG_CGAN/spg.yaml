@@ -14,7 +14,10 @@ INPUT:
 
 OPTIM:
   NAME: "sgd"
+  # set lr to 2e-3 in PACS and VLCS datasets
   LR: 2e-3
+  # set lr to 2e-4 in other datasets
+  # LR: 2e-4
   MAX_EPOCH: 70
   LR_SCHEDULER: "cosine"
   WARMUP_EPOCH: 4

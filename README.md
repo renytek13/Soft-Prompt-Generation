@@ -92,7 +92,9 @@ Make sure you **modify the path in `$DATA`**!
 
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
-**We provid our own dataset splits file [spg_coop_splits](https://drive.google.com/drive/folders/1sa7FNaWgs_8Eh4JMO1GZtTUMXqcFRirK?usp=drive_link) and the trained [prompt labels](https://drive.google.com/drive/folders/1-2UvAUAhwH4LPHiWPUrtUreRpXU7goY3?usp=drive_link).** If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
+**We provid our dataset split files [spg_coop_splits](https://drive.google.com/drive/folders/1sa7FNaWgs_8Eh4JMO1GZtTUMXqcFRirK?usp=drive_link) and the trained [domain prompt labels](https://drive.google.com/drive/folders/1-2UvAUAhwH4LPHiWPUrtUreRpXU7goY3?usp=drive_link).** 
+
+If you wanna use our produced data splits and domain prompt labels, please put split files into the dataset directory (follow [DATASETS.md](DATASETS.md)) and put domain prompt labels in [domain prompt labels](prompt_labels). Then go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
 
 <details>
   
@@ -109,7 +111,7 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50 0
 
 
 ### Training Stage II: Generative Model Pre-training
-Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path. The bash files of Three types of DG tasks in [scripts folder](scripts/spg_cgan).
+Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path. The bash files of three types of DG tasks in [scripts folder](scripts/spg_cgan).
 
 For multi-source Domain Generalization
 ```bash
@@ -151,7 +153,7 @@ Supported methods in this codespace are as follows:
 | MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) | 
 | DPL                       | [TJSAI 2023](https://arxiv.org/abs/2111.12853) |  [link](https://github.com/shogi880/DPLCLIP)                         |
 
-Also, for our SPG method, we provide our **pre-trained [models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link)** on five DG datasets and you can directly evaluate on those models.
+Also, for our SPG method, we provide our **[pre-trained models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link)** on five DG datasets and you can directly evaluate on those models.
 
 
 ## 📝 Citation

@@ -133,7 +133,6 @@ bash scripts/spg_cgan/cross.sh spg ViT-B/16 2
 ### Evaluation
 For multi-source Domain Generalization
 
-**We provid our pre-trained [models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link) on five DG datasets and you can directly evaluate on those models.**
 ```bash
 # Example: test PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
 bash scripts/test_all.sh pacs spg RN50 0
@@ -151,6 +150,8 @@ Supported methods in this codespace are as follows:
 | VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274)  |  [link](https://github.com/KMnP/vpt)                                 | 
 | MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) | 
 | DPL                       | [TJSAI 2023](https://arxiv.org/abs/2111.12853) |  [link](https://github.com/shogi880/DPLCLIP)                         |
+
+Also, for our SPG method, we provide our **pre-trained [models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link)** on five DG datasets and you can directly evaluate on those models.
 
 
 ## 📝 Citation

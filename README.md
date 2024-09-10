@@ -174,7 +174,7 @@ If our code is helpful to your research or projects, please consider citing our 
 
 ## 📨 Contact
 
-If you have any questions, please create an issue on this repository or contact us at baishuanghao@stu.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
+If you have any questions, please create an issue on this repository or contact us at zyd993@stu.xjtu.edu.cn or baishuanghao@stu.xjtu.edu.cn.
 
 
 ## 🙏 Acknowledgements

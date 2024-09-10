@@ -7,8 +7,11 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-domainnet)](https://paperswithcode.com/sota/domain-generalization-on-domainnet?p=soft-prompt-generation-for-domain)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.19286v2-b31b1b.svg)](https://arxiv.org/abs/2404.19286v2)
+<a href="https://zhuanlan.zhihu.com/p/719329220"><img src="https://img.shields.io/badge/Chinese Interpretation-blue?logo=zhihu&logoColor=blue&label=zhihu&labelColor=white&color=blue"></a>
+<!-- 
 ![GitHub stars](https://img.shields.io/github/stars/renytek13/Soft-Prompt-Generation-with-CGAN)
 ![GitHub forks](https://img.shields.io/github/forks/renytek13/Soft-Prompt-Generation-with-CGAN)
+-->
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
 

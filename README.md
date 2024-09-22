@@ -161,7 +161,7 @@ Also, for our SPG method, we provide our **[pre-trained models](https://drive.go
 
 ## 📝 Citation
 
-If our code is helpful to your research or projects, please consider citing our work! 🥰 
+If our code is helpful to your research or projects, please consider citing our work!  
 
 ```bibtex
 @inproceedings{bai2024soft,
